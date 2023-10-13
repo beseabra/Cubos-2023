@@ -1,0 +1,16 @@
+.main {
+  height: 100%;
+  margin: 0;
+  width: 100%;
+  font-family: var(--font-lato);
+}
+
+.main h1,
+.main h2,
+.main h3,
+.main h4,
+.main h5,
+.main h6 {
+  font-family: var(--font-abel);
+  font-weight: 400;
+}
