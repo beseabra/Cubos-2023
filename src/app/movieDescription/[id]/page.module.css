@@ -109,13 +109,20 @@
   color: #000;
   font-size: 0.8rem;
 }
+.informationMovie {
+  width: 100%;
+}
 .imageMovie {
   width: 70rem;
   min-width: 10rem;
-  min-height: 25rem;
-  max-width: 28rem;
+  min-height: 31rem;
+  max-width: 23rem;
   position: relative;
 }
 .descriptionContainer {
   display: flex;
+}
+.movieYoutube {
+  margin: 0 2rem;
+  aspect-ratio: 16/9;
 }
