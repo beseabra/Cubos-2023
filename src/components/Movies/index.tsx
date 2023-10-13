@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./movie.module.css";
 import Link from "next/link";
+import React, { useState } from "react";
 
 export default function Movies() {
+  const [searchInput, setSearchInput] = useState("");
+
   return (
     <>
       <section>
@@ -10,6 +15,8 @@ export default function Movies() {
           className={styles.searchInput}
           type="text"
           placeholder="Busque um filme por nome, ano ou gênero..."
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
         />
       </section>
       <section className={styles.movie}>

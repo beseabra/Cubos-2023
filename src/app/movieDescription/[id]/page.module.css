@@ -41,6 +41,7 @@
 
 .sinopse {
   margin-left: 2rem;
+  margin-right: 2rem;
   border-bottom: 1px solid blue;
   font-family: var(--font-abel);
   font-weight: 400;
@@ -112,6 +113,7 @@
   width: 70rem;
   min-width: 10rem;
   min-height: 25rem;
+  max-width: 28rem;
   position: relative;
 }
 .descriptionContainer {
