@@ -84,6 +84,10 @@ export default async function movieDescription({
         })
       : "";
 
+  const formattedRuntime = data.runtime
+    ? `${Math.floor(data.runtime / 60)}h${data.runtime % 60}min`
+    : "";
+
   return (
     <body className={styles.main}>
       <Header />
@@ -146,7 +150,8 @@ export default async function movieDescription({
                 </p>
               </h4>
               <h4 className={styles.info}>
-                Duração <p className={styles.infoAdditional}>{data.runtime}</p>
+                Duração{" "}
+                <p className={styles.infoAdditional}>{formattedRuntime}</p>
               </h4>
               <h4 className={styles.info}>
                 Orçamento{" "}
