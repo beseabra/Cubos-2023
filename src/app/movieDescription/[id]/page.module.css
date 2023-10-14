@@ -20,14 +20,12 @@
 }
 .title {
   font-size: 1.5rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 1rem 2rem;
   background-color: rgb(221, 221, 221);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 4rem;
 }
 .year {
   font-family: var(--font-lato);
@@ -37,6 +35,7 @@
 }
 .movieTitle {
   color: rgb(24, 99, 145);
+  margin: 0;
 }
 
 .sinopse {
@@ -56,12 +55,14 @@
 }
 .categoryContainer {
   display: flex;
+  gap: 1rem;
   margin: 1rem 2rem;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 4rem;
 }
 .category {
+  display: inline-block;
   border: 1px solid rgb(24, 99, 145);
   background-color: #fff;
   padding: 0.3rem;
@@ -70,6 +71,7 @@
   border-radius: 1rem;
   color: rgb(24, 99, 145);
   margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .circle {

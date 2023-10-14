@@ -33,6 +33,7 @@ export default function useSearch({
   page: number;
 }) {
   const [dataByTitle, setDataByTitle] = useState<SearchResults | undefined>();
+  const [loadingByTitle, setLoadingByTitle] = useState(false);
 
   const totalPagesByTitle = dataByTitle?.total_pages
     ? dataByTitle?.total_pages * 4
@@ -43,7 +44,7 @@ export default function useSearch({
   );
 
   useEffect(() => {
-    setDataByTitle(undefined);
+    setLoadingByTitle(true);
     fetch(
       `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=pt-BR&page=${apiPageByTitle}`,
       {
@@ -54,6 +55,7 @@ export default function useSearch({
     )
       .then((response) => response.json())
       .then((data) => {
+        setLoadingByTitle(false);
         if (data.success === false) return;
         setDataByTitle(data);
       });
@@ -68,6 +70,7 @@ export default function useSearch({
       : [];
 
   const [dataByGenre, setDataByGenre] = useState<SearchResults | undefined>();
+  const [loadingByGenre, setLoadingByGenre] = useState(false);
 
   const totalPagesByGenre = dataByGenre?.total_pages
     ? dataByGenre?.total_pages * 4
@@ -81,7 +84,7 @@ export default function useSearch({
   console.log("apiPageByGenre", apiPageByGenre);
 
   useEffect(() => {
-    setDataByGenre(undefined);
+    setLoadingByGenre(true);
     fetch(
       `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=pt-BR&page=${apiPageByGenre}&sort_by=popularity.desc&with_genres=${query}`,
       {
@@ -92,6 +95,7 @@ export default function useSearch({
     )
       .then((response) => response.json())
       .then((data) => {
+        setLoadingByGenre(false);
         if (data.success === false) return;
         const total_pages = data.total_pages > 500 ? 500 : data.total_pages;
         setDataByGenre({ ...data, total_pages });
@@ -112,7 +116,10 @@ export default function useSearch({
       startItemByGenre + itemsByGenreNumber
     ) ?? [];
 
-  const results = [...resultsByTitle, ...resultsByGenre];
+  const results =
+    !loadingByTitle && !loadingByGenre
+      ? [...resultsByTitle, ...resultsByGenre]
+      : [];
 
   const totalPages = results.length ? totalPagesByTitle + totalPagesByGenre : 0;
 

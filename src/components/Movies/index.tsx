@@ -5,12 +5,14 @@ import styles from "./movie.module.css";
 import Link from "next/link";
 import React, { useState } from "react";
 import useSearch from "@/hook/useSearch";
+import useGenres from "@/hook/useGenres";
 
 export default function Movies() {
   const [searchInput, setSearchInput] = useState("");
   const [page, setPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const { results, totalPages } = useSearch({ query: searchQuery, page });
+  const { genresByIdMap } = useGenres();
 
   function formatData(dateString?: string) {
     if (!dateString) return "";
@@ -19,9 +21,14 @@ export default function Movies() {
     return formattedDate;
   }
 
+  function handleChangePage(page: number) {
+    setPage(page);
+    window.scrollTo(0, 0);
+  }
+
   return (
     <>
-      <section>
+      <section className={styles.searchSection}>
         <input
           className={styles.searchInput}
           type="text"
@@ -53,14 +60,12 @@ export default function Movies() {
                 <div className={styles.circle}>
                   <span>{Math.round(movie.vote_average * 10)}%</span>
                 </div>
-                <span className={styles.title}>
-                  <Link
-                    href={`/movieDescription/${movie.id}`}
-                    className={styles.navigation}
-                  >
-                    <h2>{movie.title}</h2>
-                  </Link>
-                </span>
+                <Link
+                  href={`/movieDescription/${movie.id}`}
+                  className={styles.navigation}
+                >
+                  <h2>{movie.title}</h2>
+                </Link>
               </div>
               <span className={styles.date}>
                 {formatData(movie.release_date)}
@@ -70,7 +75,7 @@ export default function Movies() {
                 <div className={styles.categoryContainer}>
                   {movie.genre_ids.map((genre, index) => (
                     <span key={index} className={styles.category}>
-                      {genre}
+                      {genresByIdMap.get(genre)}
                     </span>
                   ))}
                 </div>
@@ -82,7 +87,7 @@ export default function Movies() {
       <section className={styles.pagination}>
         {page > 2 && (
           <span
-            onClick={() => setPage(page - 2)}
+            onClick={() => handleChangePage(page - 2)}
             className={styles.numberPagination}
           >
             {page - 2}
@@ -90,7 +95,7 @@ export default function Movies() {
         )}
         {page > 1 && (
           <span
-            onClick={() => setPage(page - 1)}
+            onClick={() => handleChangePage(page - 1)}
             className={styles.numberPagination}
           >
             {page - 1}
@@ -101,7 +106,7 @@ export default function Movies() {
         </div>
         {page < totalPages && (
           <span
-            onClick={() => setPage(page + 1)}
+            onClick={() => handleChangePage(page + 1)}
             className={styles.numberPagination}
           >
             {page + 1}
@@ -109,7 +114,7 @@ export default function Movies() {
         )}
         {page < totalPages - 1 && (
           <span
-            onClick={() => setPage(page + 2)}
+            onClick={() => handleChangePage(page + 2)}
             className={styles.numberPagination}
           >
             {page + 2}

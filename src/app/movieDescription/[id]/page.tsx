@@ -189,6 +189,7 @@ export default async function movieDescription({
               alt={data.title ?? ""}
               fill={true}
               objectFit="cover"
+              unoptimized
             />
           </div>
         </div>

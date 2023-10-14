@@ -14,13 +14,17 @@
   width: 100%;
 }
 .titleMovie {
+  display: flex;
+  align-items: flex-end;
   background-color: rgb(24, 99, 145);
   font-size: 2rem;
   color: rgb(40, 232, 228);
-  height: 4rem;
+  min-height: 4rem;
 }
 
 .circle {
+  flex-shrink: 0;
+  flex-grow: 0;
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
@@ -33,22 +37,20 @@
   align-items: center;
   font-size: 1.5rem;
   line-height: 0;
-  position: absolute;
-  transform: translate(25%, 40%);
+  transform: translateY(40%);
+  margin-left: 1rem;
 }
-.title {
-  height: 100%;
-  display: flex;
-  padding-top: 0.6rem;
-  align-items: center;
-  word-break: break-all;
-  margin-left: 6rem;
-  margin-right: 1rem;
-  font-size: 1.5rem;
-}
+
 .navigation {
   all: unset;
   cursor: pointer;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.navigation h2 {
+  margin: 0;
 }
 .date {
   font-size: 1.5rem;
@@ -73,16 +75,23 @@
   color: rgb(24, 99, 145);
   margin-right: 0.5rem;
 }
+.searchSection {
+  padding: 2rem 2rem 0 2rem;
+}
 .searchInput {
-  height: 2rem;
-  width: 70rem;
-  border-radius: 1rem;
+  box-sizing: border-box;
+  /* height: 2rem; */
+  width: 100%;
+  border-radius: 10000px;
   font-size: 1.5rem;
-  margin-top: 2rem;
-  margin-left: 2rem;
   border: none;
   background-color: rgb(235, 235, 235);
-  padding-left: 2rem;
+  padding: 0.5rem 2rem;
+  font-family: var(--font-abel);
+}
+
+.searchInput::placeholder {
+  color: rgba(24, 99, 145, 0.5);
   font-family: var(--font-abel);
 }
 .pagination {
@@ -114,4 +123,5 @@
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
