@@ -14,9 +14,9 @@
   width: 100%;
 }
 .titleMovie {
-  background-color: #4682b4;
+  background-color: rgb(24, 99, 145);
   font-size: 2rem;
-  color: #add8e6;
+  color: rgb(40, 232, 228);
   height: 4rem;
 }
 
@@ -24,10 +24,10 @@
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
-  border: 0.3rem solid #add8e6;
-  outline: #4682b4 solid 0.25rem;
-  background-color: #4682b4;
-  color: #add8e6;
+  border: 0.3rem solid rgb(40, 232, 228);
+  outline: rgb(24, 99, 145) solid 0.25rem;
+  background-color: rgb(24, 99, 145);
+  color: rgb(40, 232, 228);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,13 +64,13 @@
   flex-wrap: wrap;
 }
 .category {
-  border: 1px solid #4682b4;
+  border: 1px solid rgb(24, 99, 145);
   background-color: #fff;
   padding: 0.3rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   border-radius: 1rem;
-  color: #4682b4;
+  color: rgb(24, 99, 145);
   margin-right: 0.5rem;
 }
 .searchInput {
@@ -81,7 +81,7 @@
   margin-top: 2rem;
   margin-left: 2rem;
   border: none;
-  background-color: #dcdcdc;
+  background-color: rgb(235, 235, 235);
   padding-left: 2rem;
   font-family: var(--font-abel);
 }
@@ -95,10 +95,10 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  border: 0.15rem solid #add8e6;
-  outline: #4682b4 solid 0.25rem;
-  background-color: #4682b4;
-  color: #add8e6;
+  border: 0.15rem solid rgb(40, 232, 228);
+  outline: rgb(24, 99, 145) solid 0.25rem;
+  background-color: rgb(24, 99, 145);
+  color: rgb(40, 232, 228);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,7 +107,7 @@
   margin-bottom: 0.5rem;
 }
 .numberPagination {
-  color: #add8e6;
+  color: rgb(40, 232, 228);
   font-size: 1.25rem;
   margin-left: 1rem;
   margin-right: 1rem;
