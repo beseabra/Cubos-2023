@@ -4,9 +4,12 @@ import Image from "next/image";
 import styles from "./movie.module.css";
 import Link from "next/link";
 import React, { useState } from "react";
+import useSearch from "@/hook/useSearch";
 
 export default function Movies() {
   const [searchInput, setSearchInput] = useState("");
+  const [page, setPage] = useState(1);
+  const { results, totalPages } = useSearch({ query: searchInput, page });
 
   return (
     <>
