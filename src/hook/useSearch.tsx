@@ -114,7 +114,7 @@ export default function useSearch({
 
   const results = [...resultsByTitle, ...resultsByGenre];
 
-  const totalPages = totalPagesByTitle + totalPagesByGenre;
+  const totalPages = results.length ? totalPagesByTitle + totalPagesByGenre : 0;
 
   return { results, totalPages };
 }

@@ -10,7 +10,7 @@ interface MovieDescription {
   }[];
   runtime?: number;
   release_date?: string;
-  popularity?: number;
+  vote_average?: number;
   budget?: number;
   revenue?: number;
   status?: string;
@@ -55,9 +55,11 @@ export default async function movieDescription({
     const formattedDate = `${day}/${month}/${year}`;
     return formattedDate;
   }
-  const formattedPopularity = formatData(data.release_date);
+  const dateRelease = formatData(data.release_date);
 
-  const roundedPopularity = data.popularity ? Math.floor(data.popularity) : "?";
+  const roundedPopularity = data.vote_average
+    ? Math.round(data.vote_average * 10)
+    : "?";
 
   const formattedBudget = data.budget
     ? data.budget.toLocaleString("pt-BR", {
@@ -94,7 +96,7 @@ export default async function movieDescription({
       <section className={styles.section}>
         <div className={styles.title}>
           <h2 className={styles.movieTitle}>{data.title}</h2>
-          <span className={styles.year}>{formattedPopularity}</span>
+          <span className={styles.year}>{dateRelease}</span>
         </div>
         <div className={styles.descriptionContainer}>
           <div className={styles.informationMovie}>
