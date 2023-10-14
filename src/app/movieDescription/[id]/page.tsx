@@ -151,21 +151,30 @@ export default async function movieDescription({
                     : "Desconhecido"}
                 </p>
               </h4>
-              <h4 className={styles.info}>
-                Duração{" "}
-                <p className={styles.infoAdditional}>{formattedRuntime}</p>
-              </h4>
-              <h4 className={styles.info}>
-                Orçamento{" "}
-                <p className={styles.infoAdditional}>{formattedBudget}</p>
-              </h4>
-              <h4 className={styles.info}>
-                Receita{" "}
-                <p className={styles.infoAdditional}>{formattedRevenue}</p>
-              </h4>
-              <h4 className={styles.info}>
-                Lucro <p className={styles.infoAdditional}>{formattedProfit}</p>
-              </h4>
+              {formattedRuntime ? (
+                <h4 className={styles.info}>
+                  Duração
+                  <p className={styles.infoAdditional}>{formattedRuntime}</p>
+                </h4>
+              ) : null}
+              {formattedBudget ? (
+                <h4 className={styles.info}>
+                  Orçamento
+                  <p className={styles.infoAdditional}>{formattedBudget}</p>
+                </h4>
+              ) : null}
+              {formattedRevenue ? (
+                <h4 className={styles.info}>
+                  Receita
+                  <p className={styles.infoAdditional}>{formattedRevenue}</p>
+                </h4>
+              ) : null}
+              {formattedProfit ? (
+                <h4 className={styles.info}>
+                  Lucro
+                  <p className={styles.infoAdditional}>{formattedProfit}</p>
+                </h4>
+              ) : null}
             </div>
 
             <div className={styles.categoryContainer}>
